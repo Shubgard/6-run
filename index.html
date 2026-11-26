@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#101611" />
-  <title>Wildwood — Open World</title>
+  <meta name="description" content="Explore Sundown Coast, a fictional open-world tropical city." />
+  <title>Wildwood — Sundown Coast</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,7 +13,7 @@
     <canvas id="game" aria-label="Game world"></canvas>
     <div class="vignette"></div>
     <header class="topbar">
-      <div class="brand"><span class="brand-mark">W</span><div><strong>WILDWOOD</strong><small>THE FRONTIER</small></div></div>
+      <div class="brand"><span class="brand-mark">W</span><div><strong>WILDWOOD</strong><small>SUNDOWN COAST</small></div></div>
       <div class="compass"><span class="compass-label">N</span><span class="compass-line"></span><span id="heading">N · 000°</span></div>
       <div class="top-actions"><span class="live-dot"></span><span>EXPLORATION</span><button id="pause-button" class="icon-button" title="Pause (Esc)" aria-label="Pause">Ⅱ</button></div>
     </header>
@@ -24,20 +25,20 @@
         <div class="stat-row"><span>ϟ &nbsp;STAMINA</span><span id="stamina-value">100 / 100</span></div><div class="meter stamina-meter"><i id="stamina"></i></div>
         <div class="stat-row xp-row"><span>✦ &nbsp;EXPERIENCE</span><span>0 / 250</span></div><div class="meter xp-meter"><i></i></div>
       </div>
-      <div class="panel objective-panel"><div class="objective-icon">⌖</div><div><small>CURRENT OBJECTIVE</small><strong id="questText">Discover the wilds</strong><span id="objective-distance">Explore beyond the trail</span></div><span class="objective-chevron">›</span></div>
+      <div class="panel objective-panel"><div class="objective-icon">⌖</div><div><small>CURRENT OBJECTIVE</small><strong id="questText">Explore Sundown Coast</strong><span id="objective-distance">A neighborhood by the water</span></div><span class="objective-chevron">›</span></div>
     </section>
     <section class="right-stack">
       <div class="map-panel panel"><div class="map-heading"><span>WILDERNESS</span><button id="map-expand" title="Toggle map size">↗</button></div><canvas id="map" width="180" height="180"></canvas><div class="map-footer"><span id="coords">SECTOR 00, 00</span><span class="map-dot"></span><span>UNCHARTED</span></div></div>
-      <div class="panel region-panel"><span class="region-symbol">♧</span><div><small>YOU ARE IN</small><strong id="region-name">The Green Reach</strong></div></div>
+      <div class="panel region-panel"><span class="region-symbol">♧</span><div><small>YOU ARE IN</small><strong id="region-name">Little Palmetto</strong></div></div>
     </section>
     <footer class="bottom-ui">
       <div class="controls-hint"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>MOVE</span><kbd>SHIFT</kbd><span>SPRINT</span></div>
       <div class="weapon-hud"><div class="weapon-info"><span class="weapon-type" id="weapon-type">SIDEARM</span><strong id="weapon-name">Trailblazer</strong><small><span id="ammo-current">12</span> <b>/</b> <span id="ammo-reserve">84</span> &nbsp;·&nbsp; AMMO</small></div><button id="weapon-button" class="weapon-icon" aria-label="Open weapon wheel" title="Weapon wheel (hold Q)"><span>⌁</span><small>Q</small></button><div class="weapon-slots"><button class="slot active" data-weapon="0"><span>01</span><b>⌁</b></button><button class="slot" data-weapon="1"><span>02</span><b>╱</b></button><button class="slot" data-weapon="2"><span>03</span><b>⌖</b></button><button class="slot" data-weapon="3"><span>04</span><b>✳</b></button></div></div>
       <div class="action-hints"><span><kbd>Q</kbd> WEAPONS</span><span><kbd>F</kbd> INTERACT</span><span><kbd>ESC</kbd> PAUSE</span></div>
     </footer>
-    <div id="interaction" class="toast"><span>◎</span> You discovered a place of interest</div>
+    <div id="interaction" class="toast"><span>◎</span> Explore Sundown Coast</div>
     <div id="weapon-wheel" class="wheel-overlay" aria-hidden="true"><div class="wheel-backdrop"></div><div class="wheel"><div class="wheel-center"><span>ARSENAL</span><b>SELECT</b><small>RELEASE Q</small></div><button class="wheel-choice choice-0" data-weapon="0"><span class="choice-num">01</span><b>⌁</b><strong>TRAILBLAZER</strong><small>SIDEARM</small></button><button class="wheel-choice choice-1" data-weapon="1"><span class="choice-num">02</span><b>╱</b><strong>RANGER 9</strong><small>SMG</small></button><button class="wheel-choice choice-2" data-weapon="2"><span class="choice-num">03</span><b>⌖</b><strong>LONGSHOT</strong><small>RIFLE</small></button><button class="wheel-choice choice-3" data-weapon="3"><span class="choice-num">04</span><b>✳</b><strong>SCATTER</strong><small>SHOTGUN</small></button></div><div class="wheel-tip">MOVE MOUSE TO SELECT <span>·</span> CLICK A WEAPON</div></div>
-    <div id="pause-screen" class="modal-overlay" aria-hidden="true"><div class="modal panel"><div class="modal-brand">WILDWOOD <span> / FRONTIER</span></div><h1 id="modal-title">PAUSED</h1><p id="modal-copy">The wilderness can wait.</p><div class="settings-row"><span>RAY-TRACED SHADOWS <small>Dynamic visibility &amp; occlusion lighting</small></span><button id="ray-toggle" class="toggle on" aria-pressed="true"><i></i></button></div><div class="settings-row"><span>AMBIENT LIGHT <small>Frontier dusk atmosphere</small></span><input id="light-slider" type="range" min="30" max="100" value="78" /></div><button id="resume-button" class="resume-button">RETURN TO THE WILD <span>→</span></button><div class="modal-foot">WASD TO MOVE · MOUSE TO AIM · HOLD Q FOR WEAPONS</div></div></div>
+    <div id="pause-screen" class="modal-overlay" aria-hidden="true"><div class="modal panel"><div class="modal-brand">WILDWOOD <span> / SUNDOWN COAST</span></div><h1 id="modal-title">PAUSED</h1><p id="modal-copy">The coast can wait.</p><div class="settings-row"><span>RAY-TRACED SHADOWS <small>Dynamic visibility &amp; occlusion lighting</small></span><button id="ray-toggle" class="toggle on" aria-pressed="true"><i></i></button></div><div class="settings-row"><span>AMBIENT LIGHT <small>Frontier dusk atmosphere</small></span><input id="light-slider" type="range" min="30" max="100" value="78" /></div><button id="resume-button" class="resume-button">RETURN TO THE WILD <span>→</span></button><div class="modal-foot">WASD TO MOVE · MOUSE TO AIM · HOLD Q FOR WEAPONS</div></div></div>
     <div class="crosshair" id="crosshair"><i></i><b></b></div>
     <div class="mobile-controls"><div id="stick" class="stick"><div id="knob"></div></div><button id="sprint" class="mobile-sprint">SPRINT</button><button id="fire-button" class="mobile-fire">FIRE</button><button id="mobile-weapon" class="mobile-weapon">⌁</button></div>
   </main>
