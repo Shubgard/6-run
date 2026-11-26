@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Wildwood — Open World Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <div id="hud">
+    <div id="title"><strong>WILDWOOD</strong><span id="coords">Zone 0, 0</span></div>
+    <div id="status"><span id="healthLabel">HEALTH</span><div class="bar"><div id="health"></div></div></div>
+  </div>
+  <div id="quest"><strong>EXPLORE</strong><span id="questText">Discover the wilds</span></div>
+  <div id="interaction">Near a point of interest</div>
+  <div id="minimap"><canvas id="map" width="150" height="150"></canvas></div>
+  <div id="touch">
+    <div id="stick"><div id="knob"></div></div>
+    <button id="sprint">SPRINT</button>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
